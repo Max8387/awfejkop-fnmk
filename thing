@@ -2,11 +2,13 @@ local Plr = game.Players.LocalPlayer
 local counter = 0
 local LocalFarm
 
-print("Finding LocalPlayers Farm")
+
+if _G.NoPrints then print("Finding LocalPlayers Farm") end
+
 for i, v in pairs(workspace.Farm:GetChildren()) do
 	counter += 1
     if v.Important.Data.Owner.Value == Plr.Name then 
-        print("FOUND! Id: "..counter)
+        if _G.NoPrints then print("FOUND! Id: "..counter) end
 		LocalFarm = v
 		break
 	end
@@ -15,6 +17,6 @@ end
 if LocalFarm then
 return LocalFarm
 else 
-print("ERROR FINDING")
+if _G.NoPrints then print("ERROR FINDING") end
 return "E"
 end
